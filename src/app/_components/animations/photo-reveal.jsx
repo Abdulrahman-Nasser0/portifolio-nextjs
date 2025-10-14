@@ -1,6 +1,4 @@
-import React from 'react';
-// eslint-disable-next-line no-unused-vars
-import { motion } from 'motion/react';
+import * as motion from 'motion/react-client';
 
 export function PhotoReveal({ 
   children, 
@@ -9,9 +7,9 @@ export function PhotoReveal({
 }) {
   const variants = {
     initial: {
-      scale: 0.8,
+      scale: 0.9, // Slightly less scaling for smoother animation
       opacity: 0,
-      y: 60,
+      y: 40, // Reduced vertical movement
     },
     animate: {
       scale: 1,
@@ -20,14 +18,14 @@ export function PhotoReveal({
       transition: {
         duration: duration,
         delay: delay,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: "easeOut", // Simpler easing function
       },
     },
     hover: {
       scale: 1.05,
       transition: {
-        duration: 0.3,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        duration: 0.2, // Faster hover animation
+        ease: "easeOut",
       },
     },
   };
