@@ -7,7 +7,7 @@ import { MagneticButton } from "./_components/common/magnetic-button";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[var(--gray-light)] via-[#5c7796] to-[#7a8287] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-br from-[var(--gray-light)] via-[#5c7796] to-[#7a8287] flex items-center justify-center px-6 lg:px-8 relative overflow-hidden">
       <div className="grid mt-10 lg:mt-0 lg:grid-cols-2  lg:gap-16 items-center">
             
             {/* Left side - Text Content */}
@@ -63,10 +63,10 @@ export default function Home() {
 
             {/* Right side - Animated Tech Visual */}
             <PhotoReveal delay={1} duration={1}>
-              <div className="flex justify-center lg:justify-end">
+              <div className="flex justify-center lg:justify-end mt-6 md:mt-10">
                 <div className="relative">
                   {/* Main container */}
-                  <div className="w-87 h-80 lg:w-96 lg:h-96 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 shadow-2xl p-8 flex flex-col justify-center items-center">
+                  <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 shadow-2xl p-5 md:p-8 flex flex-col justify-center items-center">
                     
                     {/* Code Window Header */}
                     <div className="w-full bg-black/30 rounded-lg p-4 mb-6 border border-white/10">
@@ -117,7 +117,7 @@ export default function Home() {
                   </div>
                   
                   {/* Floating decorative elements */}
-                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-blue-400/20 rounded-full border border-blue-400/30 backdrop-blur-sm"></div>
+                  <div className="absolute -top-8 -right-2 w-16 h-16 bg-blue-400/20 rounded-full border border-blue-400/30 backdrop-blur-sm"></div>
                   <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-white/20 rounded-full border border-white/30 backdrop-blur-sm"></div>
                   <div className="absolute top-1/2 -left-8 w-8 h-8 bg-purple-400/20 rounded-full border border-purple-400/30 backdrop-blur-sm"></div>
                 </div>

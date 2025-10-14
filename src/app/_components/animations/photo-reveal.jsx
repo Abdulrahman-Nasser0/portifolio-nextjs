@@ -1,15 +1,26 @@
 import * as motion from 'motion/react-client';
+import { useEffect, useState } from 'react';
 
 export function PhotoReveal({ 
   children, 
   delay = 1.2,
   duration = 1
 }) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, delay * 1000);
+
+    return () => clearTimeout(timer);
+  }, [delay]);
+
   const variants = {
     initial: {
-      scale: 0.9, // Slightly less scaling for smoother animation
+      scale: 0.9, 
       opacity: 0,
-      y: 40, // Reduced vertical movement
+      y: 40, 
     },
     animate: {
       scale: 1,
@@ -17,14 +28,13 @@ export function PhotoReveal({
       y: 0,
       transition: {
         duration: duration,
-        delay: delay,
-        ease: "easeOut", // Simpler easing function
+        ease: "easeOut",
       },
     },
     hover: {
       scale: 1.05,
       transition: {
-        duration: 0.2, // Faster hover animation
+        duration: 0.2, 
         ease: "easeOut",
       },
     },
@@ -34,7 +44,7 @@ export function PhotoReveal({
     <motion.div
       variants={variants}
       initial='initial'
-      animate='animate'
+      animate={isVisible ? 'animate' : 'initial'}
       whileHover='hover'
       className="cursor-pointer"
     >
