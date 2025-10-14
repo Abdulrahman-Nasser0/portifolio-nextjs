@@ -3,6 +3,8 @@ import { Dot } from "lucide-react";
 import { MagneticButton } from "../../common/magnetic-button";
 import { useEffect, useState } from "react";
 import { FloatingMenuButton } from "../../common/floating-menu-button";
+import { AnimatePresence } from "motion/react";
+import { Offcanvas } from "../offcanvas";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,11 +34,20 @@ export function Header() {
   return (
     <header className="absolute top-0 left-0 w-full px-4 lg:p-6 z-49 text-white">
       {/* Floating Menu Button */}
+
       <FloatingMenuButton 
         isMenuOpen={isMenuOpen} 
         onToggle={handleMenuToggle} 
       />
-      
+      <AnimatePresence mode="wait">
+        {isMenuOpen && (
+          <Offcanvas
+            isOpen={isMenuOpen}
+            onClose={handleMenuClose}
+          />
+        )}
+      </AnimatePresence>
+
       <nav className="flex justify-between items-center h-16">
           {/* Logo - Home button */}
 

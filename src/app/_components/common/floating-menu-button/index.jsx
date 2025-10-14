@@ -43,11 +43,8 @@ export function FloatingMenuButton({ isMenuOpen, onToggle }) {
             damping: 20,
             duration: 0.4
           }}
-          className="!fixed top-6 right-4 md:right-6"
-          style={{ 
-            zIndex: isMenuOpen ? 60 : 50,
-            transformOrigin: "center"
-          }}
+          className="!fixed top-6 right-4 md:right-6 z-80 origin-center"
+          
         >
           <MagneticButton
             className={`w-20 h-20 ${isMenuOpen ? '!bg-blue-600' : ''}`}

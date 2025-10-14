@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'motion/react';
+import * as motion  from 'motion/react-client';
 import { NavigationLinks } from './links';
 import { opacity } from './variants';
 
@@ -12,11 +12,10 @@ export function MenuBody({ onMenuClose }) {
       animate="enter"
     >
       {/* Navigation Links */}
-      <div className="">
+      <div>
           <NavigationLinks onMenuClose={onMenuClose} />
       </div>
 
-      {/* Additional content can go here */}
     </motion.div>
   );
 }

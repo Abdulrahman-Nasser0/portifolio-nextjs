@@ -1,9 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import { motion } from 'motion/react';
+import * as motion from 'motion/react-client';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 import { slide } from './variants';
-import { MagneticButton } from '../../../../../ui/magnetic-button';
+import { MagneticButton } from '../../../../../common/magnetic-button';
 
 const navItems = [
   { title: 'Home', href: '/' },
@@ -13,14 +12,14 @@ const navItems = [
 ];
 
 export function NavigationLinks({ onMenuClose }) {
-  const location = useLocation();
+const pathname = usePathname();
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const isActive = (href) => {
     if (href === '/') {
-      return location.pathname === '/';
+      return pathname === '/';
     }
-    return location.pathname.startsWith(href);
+    return pathname.startsWith(href);
   };
 
   return (
