@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         suppressHydrationWarning={true}
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`min-h-[200vh] ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <LenisProvider />
         <Header />

@@ -1,5 +1,6 @@
 'use client';
 
+import { AnimatedBackground } from "./_components/animations/animated-background";
 import { PhotoReveal } from "./_components/animations/photo-reveal";
 import { StaggeredSlideUp } from "./_components/animations/staggered-slide-up";
 import { MagneticButton } from "./_components/common/magnetic-button";
@@ -8,8 +9,8 @@ import { MagneticButton } from "./_components/common/magnetic-button";
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-[var(--gray-light)] via-[#5c7796] to-[#7a8287] flex items-center justify-center px-6 lg:px-8 relative overflow-hidden">
-      <div className="grid mt-10 lg:mt-0 lg:grid-cols-2  lg:gap-16 items-center">
-            
+            <AnimatedBackground />
+      <div className="grid mt-10 lg:mt-0 lg:grid-cols-2  lg:gap-16 items-center z-10">
             {/* Left side - Text Content */}
             <div className="text-center lg:text-left">
               <StaggeredSlideUp staggerDelay={0.15} initialDelay={0.3}>
@@ -123,7 +124,7 @@ export default function Home() {
                 </div>
               </div>
             </PhotoReveal>
-          </div>
+      </div>
       
     </main>
   );
