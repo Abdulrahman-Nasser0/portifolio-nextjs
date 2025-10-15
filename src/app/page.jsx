@@ -4,7 +4,6 @@ import { AnimatedLine } from "./_components/animations/animated-line";
 import { PhotoReveal } from "./_components/animations/photo-reveal";
 import { StaggeredSlideUp } from "./_components/animations/staggered-slide-up";
 import { MagneticButton } from "./_components/common/magnetic-button";
-import * as motion from "motion/react-client";
 
 export default function Home() {
   return (
