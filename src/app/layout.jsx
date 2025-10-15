@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         suppressHydrationWarning={true}
-        className={`min-h-[200vh] `}
       >
         <LenisProvider />
         <Header />
