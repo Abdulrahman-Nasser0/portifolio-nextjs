@@ -5,6 +5,7 @@
 :root {
   --color-text: #1C1D20;
   --gray-light: #999d9e;
+  --font-neue-montreal: 'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
 * {
@@ -12,8 +13,7 @@
 }
 
 body {
-  /* font-family: 'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segue UI', 'Roboto', sans-serif; */
+  font-family: var(--font-neue-montreal);
   line-height: 1.6;
-  /* background-color: var(--color-text); */
   color: var(--color-text);
 }
