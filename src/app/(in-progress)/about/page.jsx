@@ -1,14 +1,18 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function About() {
   return (
     <main className="min-h-screen text-white bg-[var(--color-text)] animate-bgEnter">
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-8 pt-[7rem] md:pt-[10rem] min-h-screen">
         {/* Photo Section */}
         <div className="lg:w-1/2 flex justify-center">
-          <img
+          <Image
             src="/about-me-photo.jpg"
             alt="Abdulrahman Nasser"
+            width={384}
+            height={384}
             className="rounded-full w-64 h-64 md:w-84 md:h-84 lg:w-96 lg:h-96 object-cover shadow-lg"
           />
         </div>
