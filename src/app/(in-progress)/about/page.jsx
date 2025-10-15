@@ -60,9 +60,10 @@ export default function About() {
         <div className="lg:w-2/3 text-center lg:text-left ">
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">About Me</h1>
           <p className="text-base leading-normal opacity-80 hover:opacity-100 transition-opacity duration-300 max-w-2xl">
-            A Front-end developer passionate about building clean, modern, and responsive web applications. I specialize in <span className='font-bold text-white hover:text-blue-400 transition-colors duration-300 cursor-pointer'>React</span>, <span className='font-bold text-white hover:text-cyan-400 transition-colors duration-300 cursor-pointer'>TailwindCSS</span>, and recently <span className='font-bold text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer'>Next.js</span>, focusing on creating seamless user experiences with performance and accessibility in mind. I love transforming ideas into interactive interfaces and continuously exploring new technologies to refine my craft.          </p>
+            Junior Front-End developer specializing in <span className="font-bold">Next.js, React, and TailwindCSS</span>.         
+         </p>
          
-          <p className="text-base leading-normal opacity-80 mt-3 hover:opacity-100 transition-opacity duration-300 max-w-2xl">
+          <p className="text-base leading-normal opacity-80 mt-3 hover:opacity-100 transition-opacity duration-300 max-w-xl">
             Currently a senior Computer Science student at Assiut University, pursuing a Bachelor's Degree with a GPA of <span className="font-bold">3.41/4.0</span>. My coursework includes Data Structures, Algorithms, Object-Oriented Programming, etc.         
          </p>
         </div>
@@ -104,25 +105,25 @@ export default function About() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Experience</h2>
           <div className="space-y-8">
-            <div className="bg-gray-700/50 hover:bg-gray-700/80 rounded-lg p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-white/10 group">
+            <div className="bg-gray-700/50 rounded-lg p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">ICPC Competition (ECPC 2023)</h3>
+                <h3 className="text-xl font-semibold text-white">ICPC Competition (ECPC 2023)</h3>
                 <span className="text-gray-400 mt-2 md:mt-0 px-3 py-1 bg-gray-600/50 rounded-full text-sm">Mar 2023 – Aug 2023</span>
               </div>
               <ul className="list-disc list-inside text-gray-300 space-y-2">
-                <li className="hover:text-white transition-colors duration-300">Enhanced proficiency in algorithm optimization and complex problem-solving by solving over <span className="font-bold">900+</span> coding problems.</li>
-                <li className="hover:text-white transition-colors duration-300">Led a team of three colleagues, achieving <span className="font-bold">#58</span> place among 300+ teams in Egypt.</li>
+                <li>Enhanced proficiency in algorithm optimization and complex problem-solving by solving over <span className="font-bold">900+</span> coding problems.</li>
+                <li>Led a team of three colleagues, achieving <span className="font-bold">#58</span> place among 300+ teams in Egypt.</li>
               </ul>
             </div>
-            <div className="bg-gray-700/50 hover:bg-gray-700/80 rounded-lg p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-white/10 group">
+            <div className="bg-gray-700/50 rounded-lg p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-xl font-semibold text-white group-hover:text-green-400 transition-colors duration-300">Leadership Development Camp</h3>
+                <h3 className="text-xl font-semibold text-white">Leadership Development Camp</h3>
                 <span className="text-gray-400 mt-2 md:mt-0 px-3 py-1 bg-gray-600/50 rounded-full text-sm">Jul 2023 – Sep 2023</span>
               </div>
               <ul className="list-disc list-inside text-gray-300 space-y-2">
-                <li className="hover:text-white transition-colors duration-300">Led a team of four colleagues from different universities to develop a startup idea.</li>
-                <li className="hover:text-white transition-colors duration-300">Organized the development process and pitched the startup concept to judges.</li>
-                <li className="hover:text-white transition-colors duration-300">Achieved <span className="font-bold">11th</span> place out of 50+ competing ideas.</li>
+                <li>Led a team of four colleagues from different universities to develop a startup idea.</li>
+                <li>Organized the development process and pitched the startup concept to judges.</li>
+                <li>Achieved <span className="font-bold">11th</span> place out of 50+ competing ideas.</li>
               </ul>
             </div>
           </div>
