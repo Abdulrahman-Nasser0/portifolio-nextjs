@@ -54,7 +54,8 @@ export default function Home() {
                 }
               `}</style>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              {/* Buttons */}
+              <div className="flex gap-4 justify-center lg:justify-start">
                 <MagneticButton
                   to="/projects"
                   variant="outline"
