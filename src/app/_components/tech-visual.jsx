@@ -9,7 +9,7 @@ export default function TechVisual() {
         {/* Main container */}
         <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 shadow-2xl p-5 md:p-8 flex flex-col justify-center items-center">
           {/* Code Window Header */}
-          {/* <div className="w-full bg-black/30 rounded-lg mb-6 border border-white/10">
+          <div className="w-full bg-black/30 rounded-lg mb-6 border border-white/10">
             <Image 
               src="/blackBoardInfo.png" 
               alt="Code Editor Header" 
@@ -17,8 +17,8 @@ export default function TechVisual() {
               height={200}
               className="w-full h-auto rounded-md object-cover"
             />
-          </div> */}
-          <div className="w-full bg-black/30 rounded-lg p-4 mb-6 border border-white/10">
+          </div>
+          {/* <div className="w-full bg-black/30 rounded-lg p-4 mb-6 border border-white/10">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-3 h-3 rounded-full bg-red-400"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
@@ -42,7 +42,7 @@ export default function TechVisual() {
                 <span className="text-yellow-300 text-sm font-mono">['React', 'TailwindCSS']</span>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* Tech Icons Grid */}
           <div className="grid grid-cols-3 gap-4 w-full">
            <div className="aspect-square bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/10">

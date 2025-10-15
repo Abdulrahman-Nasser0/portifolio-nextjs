@@ -11,9 +11,9 @@ export default function Home() {
       <svg className="absolute inset-0 w-full h-full">
         <AnimatedLine />
       </svg>
-      <StaggeredSlideUp staggerDelay={0.15} initialDelay={0}>
-        <div className="grid mt-10 lg:mt-0 lg:grid-cols-2  lg:gap-16 items-center z-10">
-          {/* Left side - Text Content */}
+      <div className="grid mt-10 lg:mt-0 lg:grid-cols-2  lg:gap-16 items-center z-10">
+        {/* Left side - Text Content */}
+        <StaggeredSlideUp staggerDelay={0.15} initialDelay={0.2}>
           <div className="text-center lg:text-left">
               <div className="mb-6">
                 <p className="text-lg text-gray-300 mb-2">Hello, I'm</p>
@@ -68,11 +68,13 @@ export default function Home() {
                 </MagneticButton>
               </div>
           </div>
+        </StaggeredSlideUp>
 
-          {/* Right side - Animated Tech Visual */}
+        {/* Right side - Animated Tech Visual */}
+        <StaggeredSlideUp staggerDelay={0.15} initialDelay={0.8}>
           <TechVisual />
-        </div>
-      </StaggeredSlideUp>
+        </StaggeredSlideUp>
+      </div>
     </main>
   );
 }
