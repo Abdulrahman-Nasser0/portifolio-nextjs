@@ -50,8 +50,9 @@ export default function About() {
           <Image
             src="/about-me-photo.jpg"
             alt="Abdulrahman Nasser"
-            width={384}
-            height={384}
+            width={400}
+            height={400}
+            sizes="(max-width: 768px) 256px, (max-width: 1024px) 336px, 384px"
             className="rounded-full w-64 h-64 md:w-84 md:h-84 lg:w-96 lg:h-96 object-cover shadow-lg"
           />
         </div>

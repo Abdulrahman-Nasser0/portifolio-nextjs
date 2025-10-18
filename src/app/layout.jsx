@@ -8,7 +8,11 @@ export const metadata = {
   title: "Abdulrahman Nasser - Portfolio",
   description: "Frontend Developer specializing in React, Next.js, and modern web technologies. Explore my portfolio showcasing innovative web applications, UI/UX designs, and creative solutions. Computer Science student with a passion for clean code and exceptional user experiences.",
   icons: {
-    icon: "/logo-white.png",
+    icon: [
+      { url: "/logo-white.png", sizes: "16x16", type: "image/png" },
+      { url: "/logo-white.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/logo-white.png",
   },
 };
 
