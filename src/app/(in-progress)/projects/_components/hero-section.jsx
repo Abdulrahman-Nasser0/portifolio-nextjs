@@ -25,7 +25,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex items-center gap-3 mb-6"
           >
-            <div className="h-px w-12 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+            <div className="h-px w-12 bg-linear-to-r from-blue-500 to-purple-500"></div>
             <span className="text-sm font-medium text-gray-400 uppercase tracking-wider">Portfolio</span>
           </motion.div>
 
@@ -36,7 +36,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
-            <span className="bg-gradient-to-r from-blue-500 via-blue-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-500 via-blue-400 to-pink-400 bg-clip-text text-transparent">
               Projects
             </span>
           </motion.h1>

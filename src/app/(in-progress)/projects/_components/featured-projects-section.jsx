@@ -33,10 +33,10 @@ export default function FeaturedProjectsSection({ projects }) {
   return (
     <section ref={sectionRef} className="mb-20">
       <div className="flex items-center justify-between mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+        <h2 className="text-3xl md:text-4xl font-bold bg-linear-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
           Featured Projects
         </h2>
-        <div className="h-px flex-1 ml-6 bg-gradient-to-r from-gray-600 to-transparent"></div>
+        <div className="h-px flex-1 ml-6 bg-linear-to-r from-gray-600 to-transparent"></div>
       </div>
       <div className="space-y-12">
         {projects.map((project, index) => (

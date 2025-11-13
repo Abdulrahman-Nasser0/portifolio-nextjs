@@ -14,7 +14,7 @@ export default function FeaturedProjectCard({ project, index, inView, isExpanded
       className="group relative"
     >
       {/* Glow Effect */}
-      <div className={`absolute -inset-0.5 bg-gradient-to-r ${project.gradient} rounded-3xl blur opacity-0 group-hover:opacity-20 transition duration-1000`}></div>
+      <div className={`absolute -inset-0.5 bg-linear-to-r ${project.gradient} rounded-3xl blur opacity-0 group-hover:opacity-20 transition duration-1000`}></div>
       
       <div className="relative bg-gray-900/40 backdrop-blur-xl rounded-3xl overflow-hidden border border-gray-800/50 hover:border-gray-700/50 transition-all duration-500">
         <div className="grid lg:grid-cols-[45%_55%]">
@@ -73,11 +73,11 @@ function ProjectImage({ project }) {
           sizes="(max-width: 1024px) 100vw, 45vw"
         />
         {/* Gradient Overlay on Hover */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
+        <div className={`absolute inset-0 bg-linear-to-br ${project.gradient} opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
       </motion.div>
 
       {/* Stats Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+      <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-black/80 to-transparent">
         <div className="flex gap-4 text-sm">
           {project.stats.duration && (
             <div className="flex items-center gap-2 text-gray-300">
@@ -102,7 +102,7 @@ function ProjectImage({ project }) {
 function ProjectHeader({ project }) {
   return (
     <>
-      <h3 className={`text-3xl lg:text-4xl font-bold mb-2 bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}>
+      <h3 className={`text-3xl lg:text-4xl font-bold mb-2 bg-linear-to-r ${project.gradient} bg-clip-text text-transparent`}>
         {project.title}
       </h3>
       <p className="text-gray-400 text-lg mb-4">{project.subtitle}</p>
@@ -127,7 +127,7 @@ function TechStack({ techStack, inView, index }) {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.3, delay: index * 0.2 + i * 0.05 }}
-            className="px-4 py-1.5 bg-gradient-to-r from-gray-800 to-gray-800/50 hover:from-gray-700 hover:to-gray-700/50 border border-gray-700/50 rounded-full text-xs font-medium text-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+            className="px-4 py-1.5 bg-linear-to-r from-gray-800 to-gray-800/50 hover:from-gray-700 hover:to-gray-700/50 border border-gray-700/50 rounded-full text-xs font-medium text-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
           >
             {tech}
           </motion.span>
@@ -176,7 +176,7 @@ function ProjectActions({ liveUrl, githubUrl }) {
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 rounded-xl transition-all duration-300 font-medium group/link transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50"
+          className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 rounded-xl transition-all duration-300 font-medium group/link transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50"
         >
           <ExternalLink size={18} className="group-hover/link:rotate-45 transition-transform duration-300" />
           <span>Live Demo</span>
