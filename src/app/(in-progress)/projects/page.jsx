@@ -8,7 +8,7 @@ import { featuredProjects, additionalProjects } from './_components/projects-dat
 
 export default function Projects() {
   return (
-    <main className="min-h-screen text-white bg-[var(--color-text)] animate-bgEnter">
+    <main className="min-h-screen text-white bg-(--color-text) animate-bgEnter">
       <HeroSection />
 
       {/* Projects Container */}

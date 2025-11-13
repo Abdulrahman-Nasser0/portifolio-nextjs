@@ -7,7 +7,7 @@ export default function TechVisual() {
     <div className="flex justify-center lg:justify-end mt-6 md:mt-10">
       <div className="relative">
         {/* Main container */}
-        <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 shadow-2xl p-5 md:p-8 flex flex-col justify-center items-center">
+        <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-2xl bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 shadow-2xl p-5 md:p-8 flex flex-col justify-center items-center">
           {/* Code Window Header */}
           <div className="w-full bg-black/30 rounded-lg mb-6 border border-white/10">
             <Image 

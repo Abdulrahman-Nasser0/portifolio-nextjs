@@ -43,8 +43,8 @@ export default function About() {
     };
   }, []);
   return (
-    <main className="min-h-screen text-white bg-[var(--color-text)] animate-bgEnter">
-      <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-8 pt-[7rem] md:pt-[10rem] min-h-screen">
+    <main className="min-h-screen text-white bg-(--color-text) animate-bgEnter">
+      <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-8 pt-28 md:pt-40 min-h-screen">
         {/* Photo Section */}
         <div className="lg:w-1/2 flex justify-center">
           <Image
@@ -59,7 +59,7 @@ export default function About() {
 
         {/* Text Section */}
         <div className="lg:w-2/3 text-center lg:text-left ">
-          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">About Me</h1>
+          <h1 className="text-4xl font-bold mb-4 bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent">About Me</h1>
           <p className="text-base leading-normal opacity-80 hover:opacity-100 transition-opacity duration-300 max-w-2xl">
             Junior Front-End developer specializing in <span className="font-bold">Next.js, React, and TailwindCSS</span>.         
          </p>
@@ -73,7 +73,7 @@ export default function About() {
       {/* Skills Section */}
       <section className=" py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Skills Overview</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">Skills Overview</h2>
           <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
               <div
@@ -87,7 +87,7 @@ export default function About() {
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
                   <div 
-                    className={`h-full bg-gradient-to-r ${skill.color} transition-all duration-1000 ease-out group-hover:shadow-lg`}
+                    className={`h-full bg-linear-to-r ${skill.color} transition-all duration-1000 ease-out group-hover:shadow-lg`}
                     style={{ 
                       width: skillsInView ? '0%' : '0%',
                       animation: skillsInView ? `fillWidth 1.5s ease-out ${index * 100}ms forwards` : 'none',
@@ -104,12 +104,12 @@ export default function About() {
       {/* Experience Section */}
       <section className=" py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Experience</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">Experience</h2>
           <div className="space-y-8">
             <div className="bg-gray-700/50 rounded-lg p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <h3 className="text-xl font-semibold text-white">ICPC Competition (ECPC 2023)</h3>
-                <span className="text-gray-400 mt-2 md:mt-0 px-3 py-1 bg-gray-600/50 rounded-full text-sm">Mar 2023 – Aug 2023</span>
+                <span className="text-gray-400 mt-2 md:mt-0 px-3 py-1 bg-gray-600/50 rounded-full text-sm">Mar 2023 - Aug 2023</span>
               </div>
               <ul className="list-disc list-inside text-gray-300 space-y-2">
                 <li>Enhanced proficiency in algorithm optimization and complex problem-solving by solving over <span className="font-bold">900+</span> coding problems.</li>
@@ -119,7 +119,7 @@ export default function About() {
             <div className="bg-gray-700/50 rounded-lg p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <h3 className="text-xl font-semibold text-white">Leadership Development Camp</h3>
-                <span className="text-gray-400 mt-2 md:mt-0 px-3 py-1 bg-gray-600/50 rounded-full text-sm">Jul 2023 – Sep 2023</span>
+                <span className="text-gray-400 mt-2 md:mt-0 px-3 py-1 bg-gray-600/50 rounded-full text-sm">Jul 2023 - Sep 2023</span>
               </div>
               <ul className="list-disc list-inside text-gray-300 space-y-2">
                 <li>Led a team of four colleagues from different universities to develop a startup idea.</li>

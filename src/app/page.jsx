@@ -7,7 +7,7 @@ import TechVisual from "./_components/tech-visual";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[var(--gray-light)] via-[#5c7796] to-[#7a8287] flex items-center justify-center px-6 lg:px-8 relative overflow-hidden">
+    <main className="min-h-screen bg-linear-to-br from-(--gray-light) via-[#5c7796] to-[#7a8287] flex items-center justify-center px-6 lg:px-8 relative overflow-hidden">
       <svg className="absolute inset-0 w-full h-full">
         <AnimatedLine />
       </svg>
@@ -23,7 +23,7 @@ export default function Home() {
                   </h1>
                   {/* Animated light line under Abdulrahman */}
                   <div className="absolute bottom-4 left-0 w-full h-0.5 overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-80 animate-[slideLight_3s_ease-in-out_infinite_1.5s]"></div>
+                    <div className="h-full bg-linear-to-r from-transparent via-white to-transparent opacity-80 animate-[slideLight_3s_ease-in-out_infinite_1.5s]"></div>
                   </div>
                 </div>
                 <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 -mt-3 block">
