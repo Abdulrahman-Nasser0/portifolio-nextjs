@@ -5,7 +5,7 @@ export const featuredProjects = [
     subtitle: 'Full-Stack Streaming Platform',
     description: 'A modern, responsive Netflix clone built with React and Laravel, featuring user authentication, personalized watchlists, and real-time movie data from TMDB API',
     image: '/projects/project-netlifx.png',
-    liveUrl: 'https://netflix-clone-abdulrahman-nasser.vercel.app/',
+    liveUrl: 'https://netflix-clone-lemon-nu-42.vercel.app/',
     githubUrl: 'https://github.com/Abdulrahman-Nasser0/netflix-clone',
     techStack: ['React', 'Vite', 'TailwindCSS', 'Laravel', 'MySQL', 'Zustand', 'Cypress', 'TMDB API'],
     features: [
@@ -27,7 +27,7 @@ export const featuredProjects = [
     subtitle: 'Travel Booking Platform',
     description: 'A modern, responsive travel booking platform with multi-step booking flow, destination browsing, and client testimonials',
     image: '/projects/project-turistoe.png',
-    liveUrl: 'https://turistoe.vercel.app/',
+    liveUrl: 'https://turistoe-woad.vercel.app/',
     githubUrl: 'https://github.com/Abdulrahman-Nasser0/turistoe',
     techStack: ['React 19', 'Vite', 'TailwindCSS 4', 'React Router', 'Lucide React', 'Radix UI'],
     features: [

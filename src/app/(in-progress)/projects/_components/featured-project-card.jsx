@@ -181,32 +181,30 @@ function TechStack({ techStack, inView, index }) {
 
 function ProjectActions({ liveUrl, githubUrl }) {
   return (
-    <div className="flex gap-4 mt-8">
+    <div className="flex gap-4  ">
       {liveUrl && (
         <MagneticButton
           onClick={() => window.open(liveUrl, '_blank', 'noopener,noreferrer')}
           variant="primary"
           size="default"
-          className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium group/link shadow-lg shadow-blue-500/30"
+          className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/30"
         >
           <ExternalLink
-            size={18}
+            size={24}
             className="group-hover/link:rotate-45 transition-transform duration-300"
           />
-          <span>Live Demo</span>
         </MagneticButton>
       )}
       <MagneticButton
         onClick={() => window.open(githubUrl, '_blank', 'noopener,noreferrer')}
         variant="outline"
         size="default"
-        className="flex-1 flex items-center justify-center gap-2 px-6 py-3 border-gray-700 hover:border-gray-600 rounded-xl font-medium group/link"
+        className="w-16 h-16 rounded-full flex items-center justify-center border-gray-700 hover:border-gray-600"
       >
         <Github
-          size={18}
+          size={24}
           className="group-hover/link:rotate-12 transition-transform duration-300"
         />
-        <span>Source Code</span>
       </MagneticButton>
     </div>
   );
