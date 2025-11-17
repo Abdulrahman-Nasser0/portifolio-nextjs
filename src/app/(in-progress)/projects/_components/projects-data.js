@@ -3,21 +3,79 @@ export const featuredProjects = [
     id: 1,
     title: 'Netflix Clone',
     subtitle: 'Full-Stack Streaming Platform',
-    description: 'A modern, responsive Netflix clone built with React and Laravel, featuring user authentication, personalized watchlists, and real-time movie data from TMDB API',
+    description: 'A modern, responsive Netflix clone built with React and Laravel, leveraging the power of TMDB API to deliver a seamless streaming platform experience. Features user authentication, personalized watchlists, and real-time movie data.',
     image: '/projects/project-netlifx.png',
     liveUrl: 'https://netflix-clone-lemon-nu-42.vercel.app/',
     githubUrl: 'https://github.com/Abdulrahman-Nasser0/netflix-clone',
-    techStack: ['React', 'Vite', 'TailwindCSS', 'Laravel', 'MySQL', 'Zustand', 'Cypress', 'TMDB API'],
+    techStack: ['React 19', 'Vite', 'TailwindCSS', 'Laravel 12', 'MySQL', 'Zustand', 'Cypress', 'TMDB API', 'Railway'],
     features: [
-      'Browse trending movies and TV shows',
-      'Search functionality and category filtering',
-      'User authentication system',
-      'Personal watchlist management',
-      'Fully responsive design',
-      'E2E testing with Cypress'
+      'Browse trending movies and TV shows with real-time data from TMDB',
+      'Advanced search functionality with category filtering by genre',
+      'Secure user authentication system with Laravel Sanctum',
+      'Personal watchlist management with persistent storage',
+      'Fully responsive design that works seamlessly on all devices',
+      'End-to-end testing with Cypress for reliability',
+      'State management migrated from Context API to Zustand for better performance',
+      'Smooth movie carousels matching Netflix\'s user experience'
     ],
-    development: '~15 days collaborative project',
-    challenges: 'Complex API integration between backend and TMDB, state management with Zustand migration from Context API, authentication flow with CORS/token management',
+    projectStructure: {
+      title: 'Project Architecture',
+      structure: [
+        { name: 'public/', description: 'Static assets' },
+        { name: 'src/', description: '' },
+        { name: '│   ├── components/', description: 'Reusable UI components' },
+        { name: '│   ├── contexts/', description: '(legacy) old React contexts' },
+        { name: '│   ├── stores/', description: 'Zustand stores (authStore, myListStore)' },
+        { name: '│   ├── hooks/', description: 'Custom hooks' },
+        { name: '│   ├── models/', description: 'Data models' },
+        { name: '│   ├── pages/', description: 'Application pages' },
+        { name: '│   ├── services/', description: 'API services' },
+        { name: '│   ├── utils/', description: 'Helper functions' },
+        { name: '│   ├── App.jsx', description: 'Main application component' },
+        { name: '│   └── main.jsx', description: 'Application entry point' },
+        { name: 'cypress/', description: 'E2E tests' },
+        { name: '...config files', description: '' }
+      ]
+    },
+    developmentJourney: {
+      title: 'Development Journey & Key Learnings',
+      sections: [
+        {
+          challenge: 'Complex API Integration',
+          description: 'The most significant challenge was implementing the favorites system. It required storing TMDB IDs in our database and then re-fetching detailed content information from TMDB when displaying user favorites - an intricate dance between our backend and the external API.',
+          learning: 'Gained deep understanding of working with external APIs, handling rate limits, and managing data synchronization between multiple sources.'
+        },
+        {
+          challenge: 'State Management Evolution',
+          description: 'Initially built with React Context API, the application faced performance issues with frequent re-renders. Migrated to Zustand for more efficient state management.',
+          learning: 'Learned the importance of choosing the right state management solution and how to migrate state management libraries without breaking existing functionality.'
+        },
+        {
+          challenge: 'Authentication & Security',
+          description: 'Implementing a secure authentication system that works seamlessly with the Laravel backend required solving several CORS and token management challenges.',
+          learning: 'Mastered JWT token handling, secure cookie management, and implementing proper authentication flows in a separated frontend-backend architecture.'
+        },
+        {
+          challenge: 'UI/UX Implementation',
+          description: 'Creating smooth, performant movie carousels that matched Netflix\'s behavior while maintaining responsiveness across all devices.',
+          learning: 'Developed skills in creating complex UI patterns, optimizing animations for performance, and building truly responsive designs.'
+        }
+      ]
+    },
+    development: 'Developed over approximately 15 days as a collaborative full-stack project. Frontend built with React and Vite, backend powered by Laravel REST API with MySQL database deployed on Railway.',
+    challenges: 'The most significant challenge was implementing the favorites system, which required storing TMDB IDs in our database and re-fetching detailed content from TMDB when displaying user favorites - an intricate dance between our backend and the external API. Additional challenges included maintaining consistent state with asynchronous API calls, implementing secure authentication flow with CORS and token management, and creating smooth, performant movie carousels that matched Netflix\'s behavior.',
+    technicalHighlights: [
+      'Complex API integration between Laravel backend and TMDB external API',
+      'Migrated from React Context to Zustand for improved state management',
+      'Implemented robust authentication with CORS and token handling',
+      'Built reusable component library with consistent design patterns',
+      'Backend deployed on Railway with MySQL database'
+    ],
+    collaboration: {
+      frontend: 'Abdulrahman Nasser',
+      backend: 'Mina Milad',
+      backendRepo: 'https://github.com/Mina-Melad-1/netflix-clone'
+    },
     gradient: 'from-red-600 to-red-900',
     stats: { duration: '15 days', team: 'Collaborative', type: 'Full-Stack' }
   },
@@ -25,21 +83,80 @@ export const featuredProjects = [
     id: 2,
     title: 'Turistoe',
     subtitle: 'Travel Booking Platform',
-    description: 'A modern, responsive travel booking platform with multi-step booking flow, destination browsing, and client testimonials',
+    description: 'A modern, responsive travel booking platform that demonstrates modern React development practices. Features a complete booking workflow from destination selection to payment confirmation, with responsive design and comprehensive form validation.',
     image: '/projects/project-turistoe.png',
     liveUrl: 'https://turistoe-woad.vercel.app/',
     githubUrl: 'https://github.com/Abdulrahman-Nasser0/turistoe',
-    techStack: ['React 19', 'Vite', 'TailwindCSS 4', 'React Router', 'Lucide React', 'Radix UI'],
+    techStack: ['React 19.1', 'Vite 7.1', 'TailwindCSS 4.1', 'React Router 7.8', 'Lucide React', 'Radix UI'],
     features: [
-      'Browse destinations with beautiful imagery',
-      '4-step booking process',
-      'Guest counter for adults/children',
-      'Package selection (Standard, Premium, Luxury)',
-      'Room type selection',
-      'Form validation throughout',
-      'Customer testimonials carousel'
+      'Browse travel destinations with beautiful, high-quality imagery',
+      'Complete 4-step booking flow: Trip Details → Personal Info → Payment → Confirmation',
+      'Guest counter for accurate adult and children headcount',
+      'Multiple package tiers: Standard, Premium, and Luxury options',
+      'Flexible room type selection: Single, Double, Suite, and Family rooms',
+      'Comprehensive form validation throughout the entire booking process',
+      'Interactive customer testimonials carousel with real reviews',
+      'Smooth animations and transitions for enhanced user experience',
+      'Fully responsive design optimized for mobile, tablet, and desktop'
     ],
-    development: 'Figma-to-Code challenge - pixel-perfect implementation',
+    projectStructure: {
+      title: 'Project Organization',
+      structure: [
+        { name: 'components/', description: '' },
+        { name: '│   ├── booking/', description: '4-step booking flow' },
+        { name: '│   │   ├── TripDetails.jsx', description: '' },
+        { name: '│   │   ├── PersonalInfo.jsx', description: '' },
+        { name: '│   │   ├── PaymentInfo.jsx', description: '' },
+        { name: '│   │   └── BookingConfirmation.jsx', description: '' },
+        { name: '│   └── ui/', description: 'Reusable components' },
+        { name: '│       ├── Button.jsx', description: '' },
+        { name: '│       ├── Header.jsx', description: '' },
+        { name: '│       ├── TripCard.jsx', description: '' },
+        { name: '│       ├── ClientsCarousel.jsx', description: '' },
+        { name: '│       └── ...etc', description: '' },
+        { name: 'pages/', description: '' },
+        { name: '│   ├── Home.jsx', description: '' },
+        { name: '│   └── sections/', description: '' },
+        { name: 'validations/', description: '' },
+        { name: '    └── bookingValidation.js', description: '' }
+      ]
+    },
+    developmentJourney: {
+      title: 'Development Journey & Key Learnings',
+      sections: [
+        {
+          challenge: 'Figma-to-Code Transformation',
+          description: 'Successfully translated a complex Figma design into a fully functional React application while maintaining pixel-perfect accuracy across all breakpoints.',
+          learning: 'Mastered the art of interpreting design files, understanding design systems, and implementing them with precision using modern CSS frameworks.'
+        },
+        {
+          challenge: 'Multi-Step Form Management',
+          description: 'Implemented a sophisticated 4-step booking flow with proper state management, validation, and the ability to navigate back and forth without losing data.',
+          learning: 'Gained expertise in complex form handling, state persistence across components, and creating smooth user flows with proper validation at each step.'
+        },
+        {
+          challenge: 'Responsive Design Excellence',
+          description: 'Created responsive layouts that work seamlessly across mobile, tablet, and desktop while preserving the design\'s visual appeal and functionality.',
+          learning: 'Developed deep understanding of responsive design principles, TailwindCSS breakpoints, and mobile-first development approach.'
+        },
+        {
+          challenge: 'Component Reusability',
+          description: 'Built a library of reusable components using Radix UI primitives for accessibility and consistency across the application.',
+          learning: 'Learned to create scalable, maintainable component architectures and the importance of accessibility in modern web applications.'
+        }
+      ]
+    },
+    development: 'Built as a Figma-to-Code challenge, implementing a beautiful travel agency design with pixel-perfect accuracy. The project showcases modern React patterns, responsive adaptation across all devices, and enhanced functionality beyond the original design.',
+    challenges: 'Successfully translated a complex Figma design into a fully functional React application while maintaining pixel-perfect accuracy. Implemented a sophisticated multi-step booking flow with proper state management and validation. Created responsive layouts that work seamlessly across all device sizes while preserving the design\'s visual appeal.',
+    technicalHighlights: [
+      'Pixel-perfect implementation of Figma design system',
+      'Multi-step form with persistent state management',
+      'Custom validation logic for booking information',
+      'Responsive grid layouts with TailwindCSS',
+      'Accessible components using Radix UI primitives',
+      'Smooth page transitions with React Router'
+    ],
+    designCredit: 'Original Figma design from the Figma Community - Landing Page Travel Agency',
     gradient: 'from-cyan-600 to-blue-900',
     stats: { duration: '1 week', team: 'Solo', type: 'Frontend' }
   }

@@ -58,7 +58,7 @@ export default function FeaturedProjectCard({
                 {/* Features Toggle */}
                 <motion.button
                   onClick={onToggleExpand}
-                  className="p-6 w-full cursor-pointer"
+                  className="p-6 w-fit cursor-pointer mb-4"
                   animate={{
                     x: [0, -8, 8, -8, 8, 0],
                     scale: [1, 1.02, 1.02, 1.02, 1.02, 1],
