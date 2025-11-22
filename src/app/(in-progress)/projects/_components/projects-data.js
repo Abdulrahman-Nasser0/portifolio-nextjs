@@ -77,7 +77,7 @@ export const featuredProjects = [
       backendRepo: 'https://github.com/Mina-Melad-1/netflix-clone'
     },
     gradient: 'from-red-600 to-red-900',
-    stats: { duration: '15 days', team: 'Collaborative', type: 'Full-Stack' }
+    stats: { duration: '2 months', team: 'Collaborative', type: 'Full-Stack' }
   },
   {
     id: 2,
@@ -158,7 +158,7 @@ export const featuredProjects = [
     ],
     designCredit: 'Original Figma design from the Figma Community - Landing Page Travel Agency',
     gradient: 'from-cyan-600 to-blue-900',
-    stats: { duration: '1 week', team: 'Solo', type: 'Frontend' }
+    stats: { duration: '1 month', team: 'Solo', type: 'Frontend' }
   }
 ];
 
@@ -177,27 +177,9 @@ export const additionalProjects = [
       'Fully responsive across all devices'
     ],
     development: 'Focused on creating an immersive space-themed experience with careful attention to typography, spacing, and interactive elements.',
-    liveUrl: 'https://abdulrahman-space-tourism-website.netlify.app/',
-    githubUrl: 'https://github.com/Abdulrahman-02/space-tourism-website',
+    liveUrl: 'https://space-website-challenge.netlify.app/',
+    githubUrl: 'https://github.com/Abdulrahman-Nasser0/space-tourism-website',
     stats: { type: 'Frontend', team: 'Solo' }
-  },
-  {
-    id: 'personal-hub',
-    title: 'Personal Productivity Hub',
-    description: 'An all-in-one productivity dashboard combining notes, tasks, and pomodoro timer. Built to streamline personal workflow management.',
-    image: '/projects/project-personal-productivity-hub.png',
-    gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
-    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Zustand', 'React Router'],
-    features: [
-      'Note-taking with rich text editing',
-      'Task management with priorities',
-      'Pomodoro timer for focus sessions',
-      'Dark/light theme support'
-    ],
-    development: 'Developed to solve personal productivity needs, combining multiple tools into one cohesive application.',
-    liveUrl: 'https://abdulrahman-personal-productivity-hub.netlify.app/',
-    githubUrl: 'https://github.com/Abdulrahman-02/personal-productivity-hub',
-    stats: { type: 'Full-Stack', team: 'Solo' }
   },
   {
     id: 'natours',
@@ -213,8 +195,50 @@ export const additionalProjects = [
       'Modern UI design patterns'
     ],
     development: 'Created as a showcase of advanced CSS techniques including animations, transforms, and modern layout methods.',
-    liveUrl: 'https://natours-css-abdulrahman.netlify.app/',
-    githubUrl: 'https://github.com/Abdulrahman-02/Natours',
+    liveUrl: 'https://natours-landing-webpage.netlify.app/',
+    githubUrl: 'https://github.com/Abdulrahman-Nasser0/natours-landing',
     stats: { type: 'Frontend', team: 'Solo' }
+  },
+  {
+    id: 'personal-hub',
+    title: 'Personal Productivity Hub',
+    description: 'A full-stack web application designed to enhance personal productivity through powerful features like task management, note-taking, habit tracking, and calendar integration. Built collaboratively by a team of six developers, showcasing secure authentication, responsive UI, and scalable deployment with Docker.',
+    image: '/projects/project-personal-productivity-hub.png',
+    gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
+    techStack: ['Flask', 'Python', 'HTML', 'CSS', 'JavaScript', 'SQLite', 'PostgreSQL', 'Docker', 'Session Auth'],
+    features: [
+      'Secure user authentication with registration and login system',
+      'Personalized task management with full CRUD operations',
+      'Note-taking module linked to individual user accounts',
+      'Habit tracking system to monitor daily routines and goals',
+      'Visual calendar integration for scheduling and time management',
+      'Dockerized deployment for consistent development and production environments',
+      'Modern, responsive UI with smooth user experience',
+      'Session-based authentication for secure user handling'
+    ],
+    development: 'Developed as a collaborative college project over 10 weeks (March 3 – May 14, 2025) by a team of six developers, with an estimated effort of 80–110 hours. The project demonstrates full-stack development skills, team collaboration, and modern DevOps practices.',
+    collaboration: {
+      frontend: 'Team of 6 Developers',
+      backend: 'Team of 6 Developers',
+      teamMembers: [
+        'Abdulrahman Nasser',
+        'Abdo Wael',
+        'Mustafa Salah Fadloul',
+        'Hassan HKH',
+        'Zeus62',
+        'Mina Milad'
+      ]
+    },
+    technicalHighlights: [
+      'Full-stack architecture with Flask backend and responsive frontend',
+      'Database integration with SQLite for development and PostgreSQL for production',
+      'Docker containerization with docker-compose for easy deployment',
+      'Session-based authentication system with secure user management',
+      'RESTful API design for task, note, and habit management',
+      'Responsive CSS design for seamless experience across devices',
+      'Bug fixes including login/signup redirects and constraint validation'
+    ],
+    githubUrl: 'https://github.com/Abdulrahman-Nasser0/Personal-Productivity-Hub',
+    stats: { duration: '10 weeks', team: 'Team of 6', type: 'Full-Stack' }
   }
 ];
