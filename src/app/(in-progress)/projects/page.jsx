@@ -8,7 +8,7 @@ import { featuredProjects, additionalProjects } from './_components/projects-dat
 
 export default function Projects() {
   return (
-    <main className="min-h-screen text-white bg-(--color-text) animate-bgEnter">
+    <main className="min-h-screen text-white bg-(--color-text)">
       <HeroSection />
 
       {/* Projects Container */}
@@ -16,21 +16,6 @@ export default function Projects() {
         <FeaturedProjectsSection projects={featuredProjects} />
         <AdditionalProjectsSection projects={additionalProjects} />
       </div>
-
-      <style jsx>{`
-        @keyframes bgEnter {
-          0% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
-
-        .animate-bgEnter {
-          animation: bgEnter 0.8s ease-in-out forwards;
-        }
-      `}</style>
     </main>
   );
 }
