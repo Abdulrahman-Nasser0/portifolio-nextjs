@@ -41,21 +41,22 @@ export function MagneticButton({
     handleMagneticOut,
   } = useMagnetic(elementRef);
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     if (to) {
       e.preventDefault();
+      
+      // Call onClick first (e.g., close menu)
+      if (onClick && typeof onClick === 'function') {
+        onClick(e);
+      }
+      
+      // Small delay to let animations complete before navigation
+      await new Promise(resolve => setTimeout(resolve, 50));
+      
       try {
         router.push(to);
-        // Call onClick after successful navigation (useful for closing menus, etc.)
-        if (onClick && typeof onClick === 'function') {
-          onClick(e);
-        }
       } catch (error) {
         console.error('Navigation error:', error);
-        // If navigation fails, still call onClick if provided
-        if (onClick && typeof onClick === 'function') {
-          onClick(e);
-        }
       }
     } else if (onClick && typeof onClick === 'function') {
       // Handle regular click without navigation

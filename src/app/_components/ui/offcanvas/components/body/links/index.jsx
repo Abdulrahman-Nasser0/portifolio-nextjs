@@ -1,5 +1,5 @@
 import * as motion from 'motion/react-client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { slide } from './variants';
 import { MagneticButton } from '../../../../../common/magnetic-button';
@@ -12,14 +12,28 @@ const navItems = [
 ];
 
 export function NavigationLinks({ onMenuClose }) {
-const pathname = usePathname();
+  const pathname = usePathname();
   const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  // Reset hover state when pathname changes
+  useEffect(() => {
+    setHoveredIndex(null);
+  }, [pathname]);
 
   const isActive = (href) => {
     if (href === '/') {
       return pathname === '/';
     }
-    return pathname.startsWith(href);
+    // Check if pathname matches exactly or starts with the href followed by a slash
+    return pathname === href || pathname.startsWith(href + '/');
+  };
+
+  const handleClick = () => {
+    // Reset hover state and close menu immediately when clicking a link
+    setHoveredIndex(null);
+    if (onMenuClose) {
+      onMenuClose();
+    }
   };
 
   return (
@@ -30,7 +44,7 @@ const pathname = usePathname();
 
         return (
           <motion.div
-            key={index}
+            key={`${data.href}-${index}`}
             custom={index}
             variants={slide}
             initial="initial"
@@ -42,7 +56,7 @@ const pathname = usePathname();
           >
             {/* Desktop dot - positioned relative to button */}
             <motion.span
-              className="absolute -left-8 top-1/2 -translate-y-1/2 rounded-full bg-white w-[1rem] h-[1rem] hidden md:block"
+              className="absolute -left-8 top-1/2 -translate-y-1/2 rounded-full bg-white w-4 h-4 hidden md:block"
               initial={{ scale: 0 }}
               animate={{
                 scale: showDot ? 1 : 0,
@@ -56,7 +70,7 @@ const pathname = usePathname();
             
             {/* Mobile dot - positioned at far right of container */}
             <motion.span
-              className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full bg-white w-[1rem] h-[1rem] md:hidden"
+              className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full bg-white w-4 h-4 md:hidden"
               initial={{ scale: 0 }}
               animate={{
                 scale: showDot ? 1 : 0,
@@ -70,8 +84,8 @@ const pathname = usePathname();
             
             <MagneticButton
               to={data.href}
-              onClick={onMenuClose}
-              className="relative !text-5xl transition-colors duration-300 group md:pl-8"
+              onClick={handleClick}
+              className="relative text-5xl! transition-colors duration-300 group md:pl-8"
             >
               {data.title}
             </MagneticButton>
