@@ -197,7 +197,7 @@ export default function DetailedViewModal({ project, isOpen, onClose }) {
                       {project.projectStructure.title}
                     </h4>
                   </div>
-                  <div className="p-4 sm:p-6 font-mono text-sm">
+                  <div className="p-2 sm:p-4 font-mono text-[.75rem]">
                     <div className="text-gray-400">
                       {project.id === 1 ? 'netflix-clone/' : 'turistoe/'}
                     </div>
