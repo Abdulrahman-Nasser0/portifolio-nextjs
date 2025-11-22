@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import * as motion from "motion/react-client";
 import { MenuBody } from "./components/body";
-import { MenuFooter } from "./components/footer";
 import { slideLeft, opacity } from "./variants";
 
 export function Offcanvas({ isOpen, onClose }) {
@@ -44,11 +43,6 @@ export function Offcanvas({ isOpen, onClose }) {
             {/* Body */}
             <div className="flex-1">
               <MenuBody onMenuClose={onClose} />
-            </div>
-
-            {/* Footer */}
-            <div className="mt-auto">
-              <MenuFooter />
             </div>
           </div>
         </div>
