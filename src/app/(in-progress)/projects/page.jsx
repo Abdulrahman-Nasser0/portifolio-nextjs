@@ -29,17 +29,14 @@ export default function Projects() {
             viewport={{ once: true }}
             className="relative max-w-4xl mx-auto"
           >
-            {/* Background Glow */}
-            <div className="absolute -inset-0.5 bg-linear-to-r from-sky-500 to-blue-600 rounded-2xl blur opacity-20"></div>
-            
             {/* Content Card */}
-            <div className="relative bg-gray-900/40 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-gray-800/50 text-center">
+            <div className="relative  rounded-2xl p-8 md:p-12  text-center">
               <motion.h2
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-4xl font-bold bg-linear-to-r from-sky-400 to-white bg-clip-text text-transparent mb-4"
+                className="text-3xl md:text-4xl font-bold bg-linear-to-r from-sky-600 via-sky-400 to-gray-400 bg-clip-text text-transparent mb-4"
               >
                 Like What You See?
               </motion.h2>
@@ -48,7 +45,7 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto leading-relaxed"
+                className="text-gray-300  text-lg mb-8 max-w-2xl mx-auto leading-relaxed"
               >
                 Let's collaborate and bring your ideas to life. I'm available for freelance projects and full-time opportunities.
               </motion.p>

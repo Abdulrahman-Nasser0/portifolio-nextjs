@@ -74,11 +74,7 @@ export default function About() {
     <main className="min-h-screen text-white bg-(--color-text)">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl"></div>
-        </div>
+       
 
         <div className="container mx-auto px-4 pt-32 md:pt-40 pb-20 relative z-10">
           <motion.div
@@ -249,18 +245,12 @@ export default function About() {
       </div>
 
       {/* Education Section */}
-      <section className="py-12">
+      <section className="py-6">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="group relative">
-              <div className="absolute -inset-0.5 bg-linear-to-r from-gray-600 to-gray-700 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-700"></div>
-              <div className="relative bg-gray-900/40 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-gray-800/50">
+          <div className="max-w-7xl mx-auto">
+            <div className="relative">
+              <div className="absolute -inset-0.5  rounded-2xl blur opacity-20"></div>
+              <div className="relative  rounded-2xl p-6 sm:p-8 border border-gray-800/50">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-gray-800/50 rounded-xl border border-gray-700/30">
                     <GraduationCap size={32} className="text-gray-300" />
@@ -283,7 +273,7 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -299,40 +289,55 @@ export default function About() {
 
           {/* Programming Languages */}
           <div className="mb-12">
-            <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-              <span className="text-blue-400">•</span>
-              Programming Languages
-            </h3>
-            <div ref={skillsRef} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
-              {programmingLanguages.map((skill, index) => (
-                <SkillCard key={skill} skill={skill} index={index} inView={skillsInView} />
-              ))}
+            <div className="relative">
+              <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
+              <div className="relative rounded-2xl p-6 sm:p-8">
+                <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+                  <span className="text-blue-400">•</span>
+                  Programming Languages
+                </h3>
+                <div ref={skillsRef} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
+                  {programmingLanguages.map((skill, index) => (
+                    <SkillCard key={skill} skill={skill} index={index} inView={skillsInView} />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Frameworks & Libraries */}
           <div className="mb-12">
-            <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-              <span className="text-sky-400">•</span>
-              Frameworks & Libraries
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {frameworks.map((skill, index) => (
-                <SkillCard key={skill} skill={skill} index={index} inView={skillsInView} />
-              ))}
+            <div className="relative">
+              <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
+              <div className="relative rounded-2xl p-6 sm:p-8">
+                <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+                  <span className="text-sky-400">•</span>
+                  Frameworks & Libraries
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {frameworks.map((skill, index) => (
+                    <SkillCard key={skill} skill={skill} index={index} inView={skillsInView} />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Developer Tools */}
           <div>
-            <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-              <span className="text-green-400">•</span>
-              Developer Tools
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-              {tools.map((skill, index) => (
-                <SkillCard key={skill} skill={skill} index={index} inView={skillsInView} />
-              ))}
+            <div className="relative">
+              <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
+              <div className="relative rounded-2xl p-6 sm:p-8">
+                <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+                  <span className="text-green-400">•</span>
+                  Developer Tools
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                  {tools.map((skill, index) => (
+                    <SkillCard key={skill} skill={skill} index={index} inView={skillsInView} />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -383,18 +388,21 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="group relative"
+              className="relative"
             >
-              <div className="absolute -inset-0.5 bg-linear-to-r from-sky-500 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-700"></div>
-              <div className="relative bg-gray-900/40 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-500">
+              <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
+              <div className="relative rounded-2xl p-6 sm:p-8 border border-gray-800/50">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <h3 className="text-xl font-semibold text-white">ICPC Competition (ECPC 2023)</h3>
-                  <span className="text-gray-400 mt-2 md:mt-0 px-4 py-1.5 text-sm">Mar 2023 - Aug 2023</span>
+                  <span className="flex items-center gap-2 text-gray-400 mt-2 md:mt-0 text-sm">
+                    <Calendar size={16} />
+                    Mar 2023 - Aug 2023
+                  </span>
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
                     <span className="text-sky-400 mt-1 shrink-0">•</span>
-                    <span>Enhanced proficiency in algorithm optimization and complex problem-solving by solving over <span className="font-semibold text-white">900+</span> coding problems.</span>
+                    <span>Solved over <span className="font-semibold text-white">900</span> coding problems, enhancing proficiency in algorithm optimization and complex problem-solving.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-sky-400 mt-1 shrink-0">•</span>
@@ -409,13 +417,16 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="group relative"
+              className="relative"
             >
-              <div className="absolute -inset-0.5 bg-linear-to-r from-sky-500 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-700"></div>
-              <div className="relative bg-gray-900/40 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-500">
+              <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
+              <div className="relative rounded-2xl p-6 sm:p-8 border border-gray-800/50">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <h3 className="text-xl font-semibold text-white">Leadership Development Camp</h3>
-                  <span className="text-gray-400 mt-2 md:mt-0 px-4 py-1.5 text-sm">Jul 2023 - Sep 2023</span>
+                  <span className="flex items-center gap-2 text-gray-400 mt-2 md:mt-0 text-sm">
+                    <Calendar size={16} />
+                    Jul 2023 - Sep 2023
+                  </span>
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
@@ -438,7 +449,7 @@ export default function About() {
       </section>
 
       {/* Get In Touch Section */}
-      <section className="py-20">
+      <section className="py-10">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -447,17 +458,14 @@ export default function About() {
             viewport={{ once: true }}
             className="relative max-w-4xl mx-auto"
           >
-            {/* Background Glow */}
-            <div className="absolute -inset-0.5 bg-linear-to-r from-sky-500 to-blue-600 rounded-2xl blur opacity-20"></div>
-            
             {/* Content Card */}
-            <div className="relative bg-gray-900/40 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-gray-800/50 text-center">
+            <div className="relative  rounded-2xl p-8 pt-0 md:p-12 text-center">
               <motion.h2
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-4xl font-bold bg-linear-to-r from-sky-400 to-white bg-clip-text text-transparent mb-4"
+                className="text-3xl md:text-4xl font-bold bg-linear-to-r from-sky-600 via-sky-400 to-gray-400 bg-clip-text text-transparent mb-4"
               >
                 Let's Work Together
               </motion.h2>
