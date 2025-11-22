@@ -2,21 +2,46 @@
 'use client';
 
 import * as motion from 'motion/react-client';
-import { Mail, MapPin, Linkedin, Github, Send, MessageSquare } from 'lucide-react';
+import { Mail, Linkedin, Github, Send, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'abdulrahman.nasserx@gmail.com'
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Email send failed:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -69,84 +94,68 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Info Cards */}
+      {/* Contact Methods */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <motion.a
-              href="mailto:abdulrahman.nasserx@gmail.com"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="group relative"
-            >
-              <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
-              <div className="relative rounded-2xl p-6 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 h-full flex flex-col items-center text-center">
-                <div className="p-4 bg-gray-800/50 rounded-xl mb-4 group-hover:bg-gray-800 transition-colors">
-                  <Mail size={28} className="text-sky-400" />
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Email */}
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=abdulrahman.nasserx@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden"
+              >
+                <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
+                <div className="relative rounded-2xl p-8 border border-gray-800/50 hover:border-sky-500/30 transition-all duration-300 h-full flex flex-col items-center text-center">
+                  <div className="mb-4 p-4 bg-gray-800/50 group-hover:bg-gray-800 rounded-xl transition-colors">
+                    <Mail size={32} className="text-sky-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-3">Email Me</h3>
+                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors break-all">
+                    abdulrahman.nasserx@gmail.com
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Email</h3>
-                <p className="text-sm text-gray-400 break-all">abdulrahman.nasserx@gmail.com</p>
-              </div>
-            </motion.a>
+              </a>
 
-            <motion.a
-              href="https://www.linkedin.com/in/abdulrahman-nasser0"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="group relative"
-            >
-              <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
-              <div className="relative rounded-2xl p-6 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 h-full flex flex-col items-center text-center">
-                <div className="p-4 bg-gray-800/50 rounded-xl mb-4 group-hover:bg-gray-800 transition-colors">
-                  <Linkedin size={28} className="text-blue-400" />
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/abdulrahman-nasser0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden"
+              >
+                <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
+                <div className="relative rounded-2xl p-8 border border-gray-800/50 hover:border-blue-500/30 transition-all duration-300 h-full flex flex-col items-center text-center">
+                  <div className="mb-4 p-4 bg-gray-800/50 group-hover:bg-gray-800 rounded-xl transition-colors">
+                    <Linkedin size={32} className="text-blue-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-3">Connect on LinkedIn</h3>
+                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                    Let's connect professionally
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">LinkedIn</h3>
-                <p className="text-sm text-gray-400">abdulrahman-nasser0</p>
-              </div>
-            </motion.a>
+              </a>
 
-            <motion.a
-              href="https://github.com/Abdulrahman-Nasser0"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="group relative"
-            >
-              <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
-              <div className="relative rounded-2xl p-6 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 h-full flex flex-col items-center text-center">
-                <div className="p-4 bg-gray-800/50 rounded-xl mb-4 group-hover:bg-gray-800 transition-colors">
-                  <Github size={28} className="text-gray-300" />
+              {/* GitHub */}
+              <a
+                href="https://github.com/Abdulrahman-Nasser0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden"
+              >
+                <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
+                <div className="relative rounded-2xl p-8 border border-gray-800/50 hover:border-gray-600/50 transition-all duration-300 h-full flex flex-col items-center text-center">
+                  <div className="mb-4 p-4 bg-gray-800/50 group-hover:bg-gray-800 rounded-xl transition-colors">
+                    <Github size={32} className="text-gray-300" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-3">Check My Work</h3>
+                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                    View my projects & code
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">GitHub</h3>
-                <p className="text-sm text-gray-400">Abdulrahman-Nasser0</p>
-              </div>
-            </motion.a>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="group relative"
-            >
-              <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
-              <div className="relative rounded-2xl p-6 border border-gray-800/50 h-full flex flex-col items-center text-center">
-                <div className="p-4 bg-gray-800/50 rounded-xl mb-4">
-                  <MapPin size={28} className="text-green-400" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Location</h3>
-                <p className="text-sm text-gray-400">Assiut, Egypt</p>
-              </div>
-            </motion.div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -154,14 +163,8 @@ export default function Contact() {
       {/* Contact Form Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
               <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
               <div className="relative rounded-2xl p-8 md:p-12 border border-gray-800/50">
                 <div className="flex items-center gap-3 mb-8">
@@ -183,7 +186,7 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 text-white placeholder-gray-500 transition-all duration-300"
-                        placeholder="John Doe"
+                        placeholder="Ahmed"
                       />
                     </div>
 
@@ -199,25 +202,9 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 text-white placeholder-gray-500 transition-all duration-300"
-                        placeholder="john@example.com"
+                        placeholder="ahmed@example.com"
                       />
                     </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 text-white placeholder-gray-500 transition-all duration-300"
-                      placeholder="Project Inquiry"
-                    />
                   </div>
 
                   <div>
@@ -232,64 +219,41 @@ export default function Contact() {
                       required
                       rows={6}
                       className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 text-white placeholder-gray-500 transition-all duration-300 resize-none"
-                      placeholder="Tell me about your project..."
+                      placeholder="Your message here..."
                     />
                   </div>
 
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-linear-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group"
+                    disabled={isSubmitting}
+                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                    className={`w-full bg-linear-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group ${
+                      isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                    }`}
                   >
-                    <span>Send Message</span>
+                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                     <Send size={20} className="group-hover:translate-x-1 transition-transform" />
                   </motion.button>
+
+                  {submitStatus === 'success' && (
+                    <div className="mt-4 p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-center">
+                      Message sent successfully! I'll get back to you soon.
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className="mt-4 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-center">
+                      Failed to send message. Please try again or email me directly.
+                    </div>
+                  )}
                 </form>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Quick Response Section */}
-      <section className="py-12 pb-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <div className="relative">
-              <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
-              <div className="relative rounded-2xl p-8 border border-gray-800/50">
-                <h3 className="text-2xl font-bold text-white mb-4">Quick Response Time</h3>
-                <p className="text-gray-300 leading-relaxed">
-                  I typically respond to all inquiries within <span className="font-semibold text-white">24-48 hours</span>. 
-                  For urgent matters, feel free to reach out directly via{' '}
-                  <a 
-                    href="mailto:abdulrahman.nasserx@gmail.com" 
-                    className="text-sky-400 hover:text-sky-300 transition-colors underline"
-                  >
-                    email
-                  </a>
-                  {' '}or{' '}
-                  <a 
-                    href="https://www.linkedin.com/in/abdulrahman-nasser0" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:text-blue-300 transition-colors underline"
-                  >
-                    LinkedIn
-                  </a>.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </main>
   );
 }

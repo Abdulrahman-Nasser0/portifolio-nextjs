@@ -95,7 +95,7 @@ export default function About() {
                 <motion.div
                   className="absolute inset-0 rounded-full"
                   style={{
-                    background: 'linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6)',
+                    background: 'linear-gradient(45deg, #0c4a6e, #1e40af, #3b82f6, #0ea5e9, #0c4a6e)',
                     backgroundSize: '200% 200%',
                   }}
                   animate={{
@@ -247,7 +247,7 @@ export default function About() {
       {/* Education Section */}
       <section className="py-6">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl">
             <div className="relative">
               <div className="absolute -inset-0.5  rounded-2xl blur opacity-20"></div>
               <div className="relative  rounded-2xl p-6 sm:p-8 border border-gray-800/50">
