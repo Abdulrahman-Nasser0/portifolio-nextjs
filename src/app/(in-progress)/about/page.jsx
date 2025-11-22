@@ -484,7 +484,7 @@ export default function About() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <MagneticButton to="/contact" className="text-white p-4 text-lg">
+                <MagneticButton to="/contact" size="xl" className="text-white border border-sky-500/30 hover:border-sky-400/50 text-base w-52 h-52 rounded-full flex items-center justify-center whitespace-nowrap px-4">
                   Get In Touch
                 </MagneticButton>
               </motion.div>

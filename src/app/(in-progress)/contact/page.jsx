@@ -2,7 +2,7 @@
 'use client';
 
 import * as motion from 'motion/react-client';
-import { Mail, Linkedin, Github, Send, MessageSquare } from 'lucide-react';
+import { Linkedin, Github, Send, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -98,26 +98,7 @@ export default function Contact() {
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Email */}
-              <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=abdulrahman.nasserx@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative overflow-hidden"
-              >
-                <div className="absolute -inset-0.5 rounded-2xl blur opacity-20"></div>
-                <div className="relative rounded-2xl p-8 border border-gray-800/50 hover:border-sky-500/30 transition-all duration-300 h-full flex flex-col items-center text-center">
-                  <div className="mb-4 p-4 bg-gray-800/50 group-hover:bg-gray-800 rounded-xl transition-colors">
-                    <Mail size={32} className="text-sky-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">Email Me</h3>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors break-all">
-                    abdulrahman.nasserx@gmail.com
-                  </p>
-                </div>
-              </a>
-
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/abdulrahman-nasser0"
