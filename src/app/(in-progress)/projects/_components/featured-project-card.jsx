@@ -128,7 +128,7 @@ function ProjectImage({ project }) {
             <span>{project.stats.team}</span>
           </div>
           <div className="flex items-center gap-2 text-gray-300">
-            <GitBranch size={16} className="text-purple-400" />
+            <GitBranch size={16} className="text-sky-400" />
             <span>{project.stats.type}</span>
           </div>
         </div>

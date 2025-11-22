@@ -153,7 +153,7 @@ export default function DetailedViewModal({ project, isOpen, onClose }) {
                   </div>
                 </div>
                 <div className="flex items-center gap-3 p-4 bg-gray-800/40 backdrop-blur-sm rounded-xl border border-gray-700/50 hover:border-gray-600/50 transition-colors">
-                  <GitBranch size={20} className="text-purple-400 shrink-0" />
+                  <GitBranch size={20} className="text-sky-400 shrink-0" />
                   <div>
                     <p className="text-xs text-gray-500">Type</p>
                     <p className="text-sm text-gray-200 font-medium">

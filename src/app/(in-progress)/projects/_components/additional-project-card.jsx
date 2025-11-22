@@ -15,7 +15,7 @@ export default function AdditionalProjectCard({ project, index, inView }) {
       className="group relative"
     >
       {/* Card Glow */}
-      <div className="absolute -inset-0.5 bg-linear-to-r from-purple-600 via-pink-600 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-700"></div>
+      <div className="absolute -inset-0.5 bg-linear-to-r from-sky-500 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-700"></div>
       
       <div className="relative bg-gray-900/60 backdrop-blur-xl rounded-2xl overflow-hidden border border-gray-800/50 group-hover:border-gray-700/50 transition-all duration-500 h-full flex flex-col">
         {/* Project Image */}
@@ -57,7 +57,7 @@ function ProjectImage({ project }) {
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-linear-to-br from-purple-600/20 via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-sky-600/20 via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </>
         ) : (
           <div className={`h-full bg-linear-to-br ${project.gradient} flex items-center justify-center p-6`}>
@@ -77,7 +77,7 @@ function ProjectImage({ project }) {
 function ProjectHeader({ project }) {
   return (
     <>
-      <h3 className="text-xl font-bold mb-2 bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent group-hover:from-purple-200 group-hover:to-blue-200 transition-all duration-500">
+      <h3 className="text-xl font-bold mb-2 bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent group-hover:from-sky-200 group-hover:to-blue-200 transition-all duration-500">
         {project.title}
       </h3>
       <p className="text-gray-400 text-sm mb-4 leading-relaxed flex-1">
@@ -95,7 +95,7 @@ function ProjectStats({ stats }) {
         <span>{stats.team}</span>
       </div>
       <div className="flex items-center gap-1.5">
-        <GitBranch size={14} className="text-purple-400" />
+        <GitBranch size={14} className="text-sky-400" />
         <span>{stats.type}</span>
       </div>
     </div>
@@ -112,7 +112,7 @@ function TechStack({ techStack, inView, index }) {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.3, delay: index * 0.15 + i * 0.05 }}
-            className="px-3 py-1 bg-linear-to-r from-gray-800 to-gray-800/50 border border-gray-700/50 rounded-lg text-xs text-gray-300 hover:border-purple-500/50 hover:text-purple-300 transition-all duration-300"
+            className="px-3 py-1 bg-linear-to-r from-gray-800 to-gray-800/50 border border-gray-700/50 rounded-lg text-xs text-gray-300 hover:border-sky-500/50 hover:text-sky-300 transition-all duration-300"
           >
             {tech}
           </motion.span>
@@ -135,7 +135,7 @@ function ProjectActions({ liveUrl, githubUrl }) {
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-linear-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-xl transition-all duration-300 text-sm font-medium group/link hover:shadow-lg hover:shadow-purple-500/50"
+          className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-linear-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 rounded-xl transition-all duration-300 text-sm font-medium group/link hover:shadow-lg hover:shadow-sky-500/50"
         >
           <ExternalLink size={14} className="group-hover/link:rotate-45 transition-transform duration-300" />
           <span>Demo</span>

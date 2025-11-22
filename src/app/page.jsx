@@ -63,8 +63,8 @@ export default function Home() {
                 >
                   View My Work
                 </MagneticButton>
-                <MagneticButton to="/contact" className="text-white p-4">
-                  Get In Touch
+                <MagneticButton to="/about" className="text-white p-4">
+                  About Me
                 </MagneticButton>
               </div>
           </div>

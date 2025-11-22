@@ -168,7 +168,7 @@ export const additionalProjects = [
     title: 'Space Tourism Website',
     description: 'A multi-page space tourism website with interactive destinations, crew, and technology sections. Features smooth page transitions and responsive design.',
     image: '/projects/project-space-tourism.png',
-    gradient: 'from-indigo-500 via-purple-500 to-pink-500',
+    gradient: 'from-sky-500 via-blue-500 to-cyan-500',
     techStack: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
     features: [
       'Multi-page website with navigation',

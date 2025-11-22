@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import * as motion from 'motion/react-client';
 import { Mail, MapPin, Linkedin, Github, GraduationCap, Calendar } from 'lucide-react';
+import { MagneticButton } from '@/app/_components/common/magnetic-button';
 
 export default function About() {
   const [skillsInView, setSkillsInView] = useState(false);
@@ -77,7 +77,7 @@ export default function About() {
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 pt-32 md:pt-40 pb-20 relative z-10">
@@ -87,23 +87,90 @@ export default function About() {
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16"
           >
-            {/* Photo Section */}
+            {/* Animated Visual Section */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="lg:w-1/3 flex justify-center"
             >
-              <div className="relative">
-                <div className="absolute -inset-1 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-lg opacity-50"></div>
-                <Image
-                  src="/about-me-photo.jpg"
-                  alt="Abdulrahman Nasser"
-                  width={400}
-                  height={400}
-                  sizes="(max-width: 768px) 256px, (max-width: 1024px) 336px, 384px"
-                  className="relative rounded-full w-64 h-64 md:w-84 md:h-84 lg:w-96 lg:h-96 object-cover shadow-2xl "
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                {/* Rotating Border */}
+                <motion.div
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    background: 'linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6)',
+                    backgroundSize: '200% 200%',
+                  }}
+                  animate={{
+                    rotate: 360,
+                    backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
+                  }}
+                  transition={{
+                    rotate: { duration: 8, repeat: Infinity, ease: "linear" },
+                    backgroundPosition: { duration: 5, repeat: Infinity, ease: "linear" },
+                  }}
                 />
+                
+                {/* Inner Circle */}
+                <div className="absolute inset-1 bg-gray-900 rounded-full flex items-center justify-center">
+                  {/* Code Brackets Animation */}
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <motion.div
+                      className="text-6xl md:text-7xl lg:text-8xl font-bold text-white/90"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <motion.span
+                        animate={{ x: [-5, 0, -5] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        className="text-blue-400"
+                      >
+                        {'<'}
+                      </motion.span>
+                      <motion.span
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                        className="text-white mx-2"
+                      >
+                        /
+                      </motion.span>
+                      <motion.span
+                        animate={{ x: [5, 0, 5] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        className="text-sky-400"
+                      >
+                        {'>'}
+                      </motion.span>
+                    </motion.div>
+                    
+                    {/* Floating Particles */}
+                    {[...Array(8)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-2 h-2 bg-blue-400/50 rounded-full"
+                        style={{
+                          top: `${50 + 35 * Math.sin((i * Math.PI) / 4)}%`,
+                          left: `${50 + 35 * Math.cos((i * Math.PI) / 4)}%`,
+                        }}
+                        animate={{
+                          scale: [0, 1, 0],
+                          opacity: [0, 1, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: i * 0.25,
+                          ease: "easeInOut",
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Outer Glow */}
+                <div className="absolute -inset-4 bg-linear-to-r from-sky-500/20 via-blue-500/20 to-cyan-500/20 rounded-full blur-2xl"></div>
               </div>
             </motion.div>
 
@@ -115,18 +182,11 @@ export default function About() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex items-center gap-3 mb-6 justify-center lg:justify-start"
               >
-                <div className="h-px w-12 bg-linear-to-r from-blue-500 to-purple-500"></div>
+                <div className="h-px w-12 bg-linear-to-r from-sky-500 to-blue-500"></div>
                 <span className="text-sm font-medium text-gray-400 uppercase tracking-wider">About</span>
               </motion.div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-linear-to-r from-blue-500 via-blue-400 to-pink-400 bg-clip-text text-transparent"
-              >
-                About Me
-              </motion.h1>
+              
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -173,7 +233,7 @@ export default function About() {
                   href="https://github.com/Abdulrahman-Nasser0"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-purple-600/20 border border-gray-700/50 hover:border-purple-500/50 rounded-lg transition-all duration-300 text-sm text-gray-300 hover:text-purple-400 group"
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-sky-600/20 border border-gray-700/50 hover:border-sky-500/50 rounded-lg transition-all duration-300 text-sm text-gray-300 hover:text-sky-400 group"
                 >
                   <Github size={16} className="group-hover:scale-110 transition-transform" />
                   <span>GitHub</span>
@@ -253,7 +313,7 @@ export default function About() {
           {/* Frameworks & Libraries */}
           <div className="mb-12">
             <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-              <span className="text-purple-400">•</span>
+              <span className="text-sky-400">•</span>
               Frameworks & Libraries
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -296,7 +356,7 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="bg-gray-800/40 backdrop-blur-sm hover:bg-gray-800/60 rounded-xl p-4 border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300 hover:scale-105 text-center group cursor-default"
+                className="bg-gray-800/40 backdrop-blur-sm hover:bg-gray-800/60 rounded-xl p-4 border border-gray-700/50 hover:border-sky-500/30 transition-all duration-300 hover:scale-105 text-center group cursor-default"
               >
                 <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
                   {competency}
@@ -325,7 +385,7 @@ export default function About() {
               viewport={{ once: true }}
               className="group relative"
             >
-              <div className="absolute -inset-0.5 bg-linear-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-700"></div>
+              <div className="absolute -inset-0.5 bg-linear-to-r from-sky-500 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-700"></div>
               <div className="relative bg-gray-900/40 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-500">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <h3 className="text-xl font-semibold text-white">ICPC Competition (ECPC 2023)</h3>
@@ -333,11 +393,11 @@ export default function About() {
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
-                    <span className="text-blue-400 mt-1 shrink-0">•</span>
+                    <span className="text-sky-400 mt-1 shrink-0">•</span>
                     <span>Enhanced proficiency in algorithm optimization and complex problem-solving by solving over <span className="font-semibold text-white">900+</span> coding problems.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-blue-400 mt-1 shrink-0">•</span>
+                    <span className="text-sky-400 mt-1 shrink-0">•</span>
                     <span>Led a team of three colleagues, achieving <span className="font-semibold text-white">#58</span> place among 300+ teams in Egypt.</span>
                   </li>
                 </ul>
@@ -351,7 +411,7 @@ export default function About() {
               viewport={{ once: true }}
               className="group relative"
             >
-              <div className="absolute -inset-0.5 bg-linear-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-700"></div>
+              <div className="absolute -inset-0.5 bg-linear-to-r from-sky-500 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-700"></div>
               <div className="relative bg-gray-900/40 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-500">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <h3 className="text-xl font-semibold text-white">Leadership Development Camp</h3>
@@ -359,21 +419,69 @@ export default function About() {
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
-                    <span className="text-purple-400 mt-1 shrink-0">•</span>
+                    <span className="text-sky-400 mt-1 shrink-0">•</span>
                     <span>Led a team of four colleagues from different universities to develop a startup idea.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-purple-400 mt-1 shrink-0">•</span>
+                    <span className="text-sky-400 mt-1 shrink-0">•</span>
                     <span>Organized the development process and pitched the startup concept to judges.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-purple-400 mt-1 shrink-0">•</span>
+                    <span className="text-sky-400 mt-1 shrink-0">•</span>
                     <span>Achieved <span className="font-semibold text-white">11th</span> place out of 50+ competing ideas.</span>
                   </li>
                 </ul>
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Get In Touch Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="relative max-w-4xl mx-auto"
+          >
+            {/* Background Glow */}
+            <div className="absolute -inset-0.5 bg-linear-to-r from-sky-500 to-blue-600 rounded-2xl blur opacity-20"></div>
+            
+            {/* Content Card */}
+            <div className="relative bg-gray-900/40 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-gray-800/50 text-center">
+              <motion.h2
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-4xl font-bold bg-linear-to-r from-sky-400 to-white bg-clip-text text-transparent mb-4"
+              >
+                Let's Work Together
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto leading-relaxed"
+              >
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <MagneticButton to="/contact" className="text-white p-4 text-lg">
+                  Get In Touch
+                </MagneticButton>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
