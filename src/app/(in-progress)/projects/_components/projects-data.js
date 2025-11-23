@@ -1,6 +1,109 @@
 export const featuredProjects = [
   {
     id: 1,
+    title: 'TechZone',
+    subtitle: 'E-Commerce Platform for Laptops',
+    description: 'A modern, full-featured e-commerce platform specifically designed for selling laptops. Features complete shopping experience with product browsing, variant selection (RAM, Storage, Storage Type), cart management, and user authentication. Built with Next.js 16 and TypeScript, showcasing server-side rendering, mock/real backend toggle, and client-side cart persistence.',
+    image: '/projects/project-techzone/Screenshot from 2025-11-23 16-07-40.png',
+    liveUrl: 'https://techzone-alpha.vercel.app/',
+    githubUrl: 'https://github.com/Abdulrahman-Nasser0/store-frontend',
+    techStack: ['Next.js 16', 'React 19.2', 'TypeScript 5.9', 'TailwindCSS 4.1', 'Jose (JWT)', 'Zod', 'pnpm'],
+    features: [
+      'Server-Side Rendering (SSR) for optimal performance and SEO',
+      'Product listing with grid layout and comprehensive filtering options',
+      'Advanced variant selection system (RAM, Storage, Storage Type)',
+      'Real-time price calculations with discount handling',
+      'Shopping cart with localStorage persistence and stock validation',
+      'Cross-component cart synchronization using custom events',
+      'Mock/Real backend toggle for flexible development and testing',
+      'Complete authentication UI (Login, Signup, Password Reset, Email Verification)',
+      'Responsive design optimized for mobile, tablet, and desktop',
+      'Type-safe development with comprehensive TypeScript types'
+    ],
+    galleryImages: [
+      { 
+        src: '/projects/project-techzone/Screenshot from 2025-11-23 16-07-52.png',
+        caption: 'Product listing page with grid layout and filters'
+      },
+      { 
+        src: '/projects/project-techzone/Screenshot from 2025-11-23 16-08-08.png',
+        caption: 'Product detail page with variant selection and image gallery'
+      }
+    ],
+    projectStructure: {
+      title: 'Project Architecture',
+      structure: [
+        { name: 'src/app/', description: 'Next.js App Router pages' },
+        { name: '│   ├── (auth)/', description: 'Authentication routes' },
+        { name: '│   ├── cart/', description: 'Shopping cart page' },
+        { name: '│   ├── dashboard/', description: 'User dashboard' },
+        { name: '│   ├── shop/', description: 'Product listing & details' },
+        { name: '│   │   └── [id]/', description: 'Dynamic product pages' },
+        { name: '│   └── globals.css', description: 'Global styles' },
+        { name: 'src/components/', description: '' },
+        { name: '│   ├── common/', description: 'Reusable UI components' },
+        { name: '│   ├── layout/Header/', description: 'Navigation components' },
+        { name: '│   └── products/', description: 'Product-specific components' },
+        { name: 'src/hooks/', description: 'Custom React hooks (useCart, useLaptops, useVariants)' },
+        { name: 'src/lib/', description: '' },
+        { name: '│   ├── actions.ts', description: 'Server actions' },
+        { name: '│   ├── api.ts', description: 'API wrapper functions' },
+        { name: '│   ├── clientCartStorage.ts', description: 'Cart localStorage manager' },
+        { name: '│   ├── types.ts', description: 'TypeScript types' },
+        { name: '│   └── mock-data/', description: 'Mock data system' }
+      ]
+    },
+    developmentJourney: {
+      title: 'Development Journey & Key Learnings',
+      sections: [
+        {
+          challenge: 'Complex Variant System',
+          description: 'Implemented a sophisticated product variant system allowing users to select different RAM, Storage, and Storage Type combinations. Each variant has its own SKU, pricing, stock levels, and availability status, requiring careful state management and validation.',
+          learning: 'Mastered complex state management for nested product variants, learned to handle dynamic pricing calculations, and implemented robust stock validation to prevent overselling.'
+        },
+        {
+          challenge: 'Client-Side Cart Persistence',
+          description: 'Built a complete cart system using localStorage for persistence in mock mode, with cross-component synchronization using custom events. The cart maintains accurate totals, validates stock availability, and survives page refreshes.',
+          learning: 'Gained expertise in browser storage APIs, event-driven architecture for component communication, and building resilient client-side state that handles edge cases like stock changes and quantity limits.'
+        },
+        {
+          challenge: 'Mock/Real Backend Toggle',
+          description: 'Designed a flexible data layer that seamlessly switches between mock data (for development) and real backend APIs (for production) through a single configuration flag, enabling independent frontend development.',
+          learning: 'Learned to build abstraction layers that separate data sources from business logic, enabling parallel development and easier testing with mock data.'
+        },
+        {
+          challenge: 'TypeScript Type Safety',
+          description: 'Implemented comprehensive TypeScript types covering products, variants, cart items, API responses, and pagination, ensuring type safety across the entire application and catching potential bugs at compile time.',
+          learning: 'Developed deep understanding of TypeScript advanced types, generics, and type inference, resulting in more maintainable and bug-free code.'
+        },
+        {
+          challenge: 'Next.js 16 App Router',
+          description: 'Leveraged Next.js 16 App Router with Server Components for data fetching, Client Components for interactivity, and Server Actions for mutations, optimizing performance and SEO.',
+          learning: 'Mastered the distinction between server and client components, learned to optimize data fetching strategies, and understood when to use each rendering pattern for best performance.'
+        }
+      ]
+    },
+    development: 'Built as a modern e-commerce frontend showcasing Next.js 16 capabilities. The project demonstrates full-stack thinking with server-side rendering, comprehensive type safety, and production-ready features like cart persistence and authentication flows. Features mock data system for independent development.',
+    technicalHighlights: [
+      'Next.js 16 App Router with Server and Client Components separation',
+      'Comprehensive TypeScript types for all data structures',
+      'Custom React hooks for cart, products, and variants management',
+      'localStorage-based cart with custom event synchronization',
+      'Mock data system with real API structure for flexible development',
+      'JWT authentication with jose library',
+      'Form validation with Zod schemas',
+      'Responsive design with Tailwind CSS 4.1 custom gradients',
+      'Button component system with 6 variants and loading states'
+    ],
+    collaboration: {
+      note: 'Frontend repository built by Abdulrahman Nasser with contributions from a college colleague who added additional features. Part of a larger collaborative project with backend (.NET team) and mobile (Flutter team) developers working in parallel on their respective repositories.',
+      backendRepo: 'https://github.com/3bdalrhmanS3d/TechZone'
+    },
+    gradient: 'from-blue-600 to-indigo-600',
+    stats: { duration: '2 months', type: 'Frontend' }
+  },
+  {
+    id: 2,
     title: 'Netflix Clone',
     subtitle: 'Full-Stack Streaming Platform',
     description: 'A modern, responsive Netflix clone built with React and Laravel, leveraging the power of TMDB API to deliver a seamless streaming platform experience. Features user authentication, personalized watchlists, and real-time movie data.',
@@ -80,7 +183,7 @@ export const featuredProjects = [
     stats: { duration: '2 months', team: 'Collaborative', type: 'Full-Stack' }
   },
   {
-    id: 2,
+    id: 3,
     title: 'Turistoe',
     subtitle: 'Travel Booking Platform',
     description: 'A modern, responsive travel booking platform that demonstrates modern React development practices. Features a complete booking workflow from destination selection to payment confirmation, with responsive design and comprehensive form validation.',

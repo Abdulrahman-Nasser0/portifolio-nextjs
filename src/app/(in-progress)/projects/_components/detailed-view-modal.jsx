@@ -130,6 +130,39 @@ export default function DetailedViewModal({ project, isOpen, onClose }) {
                 />
               </div>
 
+              {/* Gallery Images */}
+              {project.galleryImages && project.galleryImages.length > 0 && (
+                <div className="space-y-6">
+                  
+                  <div className="grid grid-cols-1 gap-6">
+                    {project.galleryImages.map((img, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: i * 0.1 }}
+                        className="space-y-2"
+                      >
+                        <div className="relative h-64 sm:h-80 lg:h-150 rounded-xl overflow-hidden border border-gray-800/50">
+                          <Image
+                            src={img.src}
+                            alt={img.caption || `Screenshot ${i + 1}`}
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 896px"
+                          />
+                        </div>
+                        {img.caption && (
+                          <p className="text-gray-400 text-sm text-center italic">
+                            {img.caption}
+                          </p>
+                        )}
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Stats Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 {project.stats.duration && (
@@ -143,15 +176,17 @@ export default function DetailedViewModal({ project, isOpen, onClose }) {
                     </div>
                   </div>
                 )}
-                <div className="flex items-center gap-3 p-4 bg-gray-800/40 backdrop-blur-sm rounded-xl border border-gray-700/50 hover:border-gray-600/50 transition-colors">
-                  <Users size={20} className="text-green-400 shrink-0" />
-                  <div>
-                    <p className="text-xs text-gray-500">Team</p>
-                    <p className="text-sm text-gray-200 font-medium">
-                      {project.stats.team}
-                    </p>
+                {project.stats.team && (
+                  <div className="flex items-center gap-3 p-4 bg-gray-800/40 backdrop-blur-sm rounded-xl border border-gray-700/50 hover:border-gray-600/50 transition-colors">
+                    <Users size={20} className="text-green-400 shrink-0" />
+                    <div>
+                      <p className="text-xs text-gray-500">Team</p>
+                      <p className="text-sm text-gray-200 font-medium">
+                        {project.stats.team}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                )}
                 <div className="flex items-center gap-3 p-4 bg-gray-800/40 backdrop-blur-sm rounded-xl border border-gray-700/50 hover:border-gray-600/50 transition-colors">
                   <GitBranch size={20} className="text-sky-400 shrink-0" />
                   <div>
@@ -162,6 +197,35 @@ export default function DetailedViewModal({ project, isOpen, onClose }) {
                   </div>
                 </div>
               </div>
+
+              {/* Collaboration Context - Show before features if note format exists */}
+              {project.collaboration && project.collaboration.note && (
+                <div className="pt-4 border-t border-gray-800">
+                  <h4 className="text-lg sm:text-xl font-semibold text-white mb-4">
+                    Collaboration Context
+                  </h4>
+                  <div className="space-y-4">
+                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                      {project.collaboration.note}
+                    </p>
+                    <p className="text-gray-400 text-xs sm:text-sm italic">
+                      See more details about the collaboration on the GitHub repository.
+                    </p>
+                    {project.collaboration.backendRepo && (
+                      <Link
+                        href={project.collaboration.backendRepo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-gray-400 hover:text-gray-200 text-sm transition-colors"
+                      >
+                        <Github size={16} />
+                        <span>Backend Repository (.NET Team)</span>
+                        <ExternalLink size={14} />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              )}
 
               {/* Features Section */}
               <div>
@@ -293,21 +357,26 @@ export default function DetailedViewModal({ project, isOpen, onClose }) {
                 </div>
               )}
 
-              {/* Collaboration Info */}
-              {project.collaboration && (
+              {/* Collaboration Info - Only show here for old format (frontend/backend grid) */}
+              {project.collaboration && !project.collaboration.note && (
                 <div className="pt-4 border-t border-gray-800">
                   <h4 className="text-lg sm:text-xl font-semibold text-white mb-4">
                     Team
                   </h4>
+                  
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-gray-500 text-xs sm:text-sm mb-1">Frontend Development</p>
-                      <p className="text-gray-200 text-sm sm:text-base font-medium">{project.collaboration.frontend}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-500 text-xs sm:text-sm mb-1">Backend Development</p>
-                      <p className="text-gray-200 text-sm sm:text-base font-medium">{project.collaboration.backend}</p>
-                    </div>
+                    {project.collaboration.frontend && (
+                      <div>
+                        <p className="text-gray-500 text-xs sm:text-sm mb-1">Frontend Development</p>
+                        <p className="text-gray-200 text-sm sm:text-base font-medium">{project.collaboration.frontend}</p>
+                      </div>
+                    )}
+                    {project.collaboration.backend && (
+                      <div>
+                        <p className="text-gray-500 text-xs sm:text-sm mb-1">Backend Development</p>
+                        <p className="text-gray-200 text-sm sm:text-base font-medium">{project.collaboration.backend}</p>
+                      </div>
+                    )}
                   </div>
                   {project.collaboration.backendRepo && (
                     <Link
