@@ -261,9 +261,9 @@ export default function DetailedViewModal({ project, isOpen, onClose }) {
                       {project.projectStructure.title}
                     </h4>
                   </div>
-                  <div className="p-2 sm:p-4 font-mono text-[.75rem]">
+                  <div className="p-2 sm:p-4 font-mono text-[0.6rem] sm:text-[0.75rem]">
                     <div className="text-gray-400">
-                      {project.id === 1 ? 'netflix-clone/' : 'turistoe/'}
+                      {project.id === 1 ? 'techzone/' : project.id === 2 ? 'netflix-clone/' :  'turistoe/'}
                     </div>
                     {project.projectStructure.structure.map((item, i) => {
                       const isLast = i === project.projectStructure.structure.length - 1;
