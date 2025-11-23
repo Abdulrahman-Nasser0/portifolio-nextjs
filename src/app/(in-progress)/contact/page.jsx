@@ -21,9 +21,9 @@ export default function Contact() {
     setSubmitStatus(null);
 
     try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+      const serviceId = process.env.EMAILJS_SERVICE_ID;
+      const templateId = process.env.EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.EMAILJS_PUBLIC_KEY;
 
       const templateParams = {
         from_name: formData.name,
@@ -225,7 +225,7 @@ export default function Contact() {
 
                   {submitStatus === 'error' && (
                     <div className="mt-4 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-center">
-                      Failed to send message. Please try again or email me directly.
+                      Failed to send message. Please try again or contact me on LinkedIn.
                     </div>
                   )}
                 </form>

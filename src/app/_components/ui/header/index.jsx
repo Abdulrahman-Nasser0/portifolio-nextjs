@@ -51,7 +51,7 @@ export function Header() {
       <nav className="flex justify-between items-center h-16">
           {/* Logo - Home button */}
 
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <MagneticButton className="flex items-center space-x-3" to="/">
               <img
                 src="/logo-white.png"
